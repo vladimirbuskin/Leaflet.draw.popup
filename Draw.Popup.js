@@ -108,9 +108,10 @@ L.Draw.Popup = L.Control.extend({
         // if draw active, cancel it
 	// commented out because it is using jquery right now to Cancel drawing, if we are in draw mode.
 	// we don't need extra dependency	
-        /*$(".leaflet-draw-actions a").filter(function () {
+	if (window.$)
+        $(".leaflet-draw-actions a").filter(function () {
             return $(this).text() == 'Cancel';
-        }).each(function (index, el) { el.click(); });*/
+        }).each(function (index, el) { el.click(); });
 
         // trigger draw controls event
         if (this._enabled) { return; }
